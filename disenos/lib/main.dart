@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Disenos App',
-      home: SlideShowPage()
+      home: SlideshowPage()
     );
   }
 }
