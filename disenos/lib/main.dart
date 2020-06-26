@@ -1,10 +1,8 @@
 //Importaciones que no son mias
-import 'package:disenos/src/pages/headers_page.dart';
-import 'package:disenos/src/widgets/headers_widget.dart';
 import 'package:flutter/material.dart';
  
 //Importaciones que Si son mias 
-import 'package:disenos/src/pages/graficas_circulares_page.dart';
+import 'package:disenos/src/pages/slideshow_page.dart';
 
 void main() => runApp(MyApp());
  
@@ -14,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Disenos App',
-      home: HeadersPage()
+      home: SlideShowPage()
     );
   }
 }
