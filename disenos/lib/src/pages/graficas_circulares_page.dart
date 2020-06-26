@@ -17,7 +17,7 @@ class _GraficasCircularesPageState extends State<GraficasCircularesPage> {
         child: Icon(Icons.refresh),
         onPressed: (){
           setState(() {
-            porcentaje += 10;
+            porcentaje += 100;
             if(porcentaje > 100){
               porcentaje = 0;
             }
