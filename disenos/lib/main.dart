@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
  
 //Importaciones que Si son mias 
-import 'package:disenos/src/pages/slideshow_page.dart';
+import 'package:disenos/src/pages/pinterest_page.dart';
 
 void main() => runApp(MyApp());
  
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Disenos App',
-      home: SlideshowPage()
+      home: PinterestPage()
     );
   }
 }
