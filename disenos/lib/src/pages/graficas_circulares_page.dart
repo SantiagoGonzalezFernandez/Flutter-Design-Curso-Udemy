@@ -1,5 +1,7 @@
+import 'package:disenos/src/theme/theme.dart';
 import 'package:disenos/src/widgets/radial_progress.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class GraficasCircularesPage extends StatefulWidget {
   @override
@@ -16,7 +18,7 @@ class _GraficasCircularesPageState extends State<GraficasCircularesPage> {
             child: Icon(Icons.refresh),
             onPressed: () {
               setState(() {
-                porcentaje += 100;
+                porcentaje += 20;
                 if (porcentaje > 100) {
                   porcentaje = 0;
                 }
@@ -29,11 +31,11 @@ class _GraficasCircularesPageState extends State<GraficasCircularesPage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 CustomRadialProgress(
-                  porcentaje: porcentaje,
+                  porcentaje: porcentaje * 1,
                   color: Colors.blue,
                 ),
                 CustomRadialProgress(
-                  porcentaje: porcentaje,
+                  porcentaje: porcentaje * 1.2,
                   color: Colors.red,
                 ),
               ],
@@ -42,11 +44,11 @@ class _GraficasCircularesPageState extends State<GraficasCircularesPage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 CustomRadialProgress(
-                  porcentaje: porcentaje,
+                  porcentaje: porcentaje * 4,
                   color: Colors.pink,
                 ),
                 CustomRadialProgress(
-                  porcentaje: porcentaje,
+                  porcentaje: porcentaje * 6,
                   color: Colors.purple,
                 ),
               ],
@@ -65,13 +67,16 @@ class CustomRadialProgress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final appTheme = Provider.of<ThemeChanger>(context).currentTheme;
+
     return Container(
       width: 180.0,
       height: 180.0,
       child: RadialProgress(
         porcentaje: porcentaje,
         colorPrimario: this.color,
-        colorSecundario: Colors.grey,
+        colorSecundario: appTheme.textTheme.bodyText1.color,
         grosorPrimario: 10,
         grosorSecundario: 4,
       ),
