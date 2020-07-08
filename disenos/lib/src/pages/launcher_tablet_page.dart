@@ -6,22 +6,42 @@ import 'package:provider/provider.dart';
 //Imports that are mine
 import 'package:disenos/src/routes/routes.dart';
 import 'package:disenos/src/theme/theme.dart';
+import 'package:disenos/src/models/layout_model.dart';
 
-class LauncherPage extends StatelessWidget {
+class LauncherTabletPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
 
-    final appTheme = Provider.of<ThemeChanger>(context).currentTheme;
+    final appTheme = Provider.of<ThemeChanger>(context);
+
+    final layoutModel = Provider.of<LayoutModel>(context);
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: appTheme.accentColor,
+        backgroundColor: appTheme.currentTheme.accentColor,
         centerTitle: true,
-        title: Text('Flutter Designs - Mobile'),
+        title: Text('Flutter Designs - Tablet'),
       ),
       drawer: _MenuPrincipal(),
-      body: _ListaOpciones()
+      body: Row(
+        children: <Widget>[
+          Container(
+            width: 300.0,
+            height: double.infinity,
+            child: _ListaOpciones(),
+          ),
+          Container(
+            width: 1.0,
+            height: double.infinity,
+            color: (appTheme.darkTheme) ? Colors.grey : appTheme.currentTheme.accentColor,
+          ),
+          Expanded(
+            child: layoutModel.currentPage,
+          )
+        ],
+      ),
+      // body: _ListaOpciones()
     );
   }
 }
@@ -43,7 +63,10 @@ class _ListaOpciones extends StatelessWidget {
         title: Text(pageRoutes[i].titulo),
         trailing: Icon(Icons.chevron_right, color: appTheme.accentColor),
         onTap: (){
-          Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => pageRoutes[i].page));
+          // Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => pageRoutes[i].page));
+          final layoutModel = Provider.of<LayoutModel>(context, listen: false);
+          layoutModel.currentPage = pageRoutes[i].page;
+
         },
       ), 
     );

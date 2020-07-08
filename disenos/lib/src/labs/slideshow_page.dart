@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 //Importaciones que si son mias
 import 'package:disenos/src/models/slider_model.dart';
 
-class SlideShowPage extends StatelessWidget {
+class LabSlideShowPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
